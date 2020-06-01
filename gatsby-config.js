@@ -1,10 +1,8 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: `Frontend Developer Portfolio`,
+    description: `Showcasing myself as a Frontend Developer`,
+    author: `Jean-Marc Möckel`,
+  },
+  plugins: ["gatsby-plugin-material-ui"],
 }
