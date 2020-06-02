@@ -33,8 +33,8 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="lg">
-        <Navbar />
+      <Navbar />
+      <Container maxWidth="lg" style={{ marginTop: 64 }}>
         <Box component="main">{children}</Box>
         <Footer />
       </Container>
