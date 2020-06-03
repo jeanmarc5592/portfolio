@@ -2,6 +2,7 @@ import React from "react"
 import { useMediaQuery, useTheme, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Title from "../Title/Title"
+import Button from "../Button/Button"
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -33,9 +34,16 @@ const Hero = () => {
         <div>
           <Title text={titleText} large />
         </div>
-        <Typography variant="h4">
+        <Typography
+          variant="h3"
+          style={{ textAlign: "left", textTransform: "uppercase" }}
+        >
           Merging the passion for coding with great design
         </Typography>
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <Button text="My Work" filled />
+          <Button text="Contact Me" />
+        </div>
       </article>
       {upMD && (
         <article style={{ background: "green" }}>
