@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Navbar />
-      <Container maxWidth="lg" style={{ marginTop: 64 }}>
+      <Container maxWidth="lg" style={{ marginTop: 64, padding: "0 48px" }}>
         <Box component="main">{children}</Box>
         <Footer />
       </Container>

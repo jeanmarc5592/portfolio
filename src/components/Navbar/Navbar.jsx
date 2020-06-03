@@ -10,15 +10,27 @@ import {
   useTheme,
 } from "@material-ui/core"
 import { MdMenu, MdClose } from "react-icons/md"
+import NavMenu from "../NavMenu/NavMenu"
+import logo from "../../../static/Logo-1.png"
+import logoWhite from "../../../static/Logo-2.png"
 
-const drawerWidth = "80%"
-
+const drawerWidth = "75%"
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
+    justifyContent: "space-between",
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+  },
+  toolBar: {
+    display: "flex",
+    justifyContent: "center",
+    maxWidth: "1280px",
+    [theme.breakpoints.up("lg")]: {
+      minWidth: "1280px",
+      margin: "0 auto",
+    },
   },
   drawer: {
     width: drawerWidth,
@@ -26,9 +38,16 @@ const useStyles = makeStyles(theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    background: theme.palette.primary.main,
   },
   drawerContainer: {
     overflow: "auto",
+    padding: 32,
+    height: "100%",
+  },
+  NavIcon: {
+    color: theme.palette.common.white,
+    fontSize: "1.5rem",
   },
   content: {
     flexGrow: 1,
@@ -36,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function ClippedDrawer() {
+const Navbar = () => {
   const classes = useStyles()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const theme = useTheme()
@@ -50,17 +69,18 @@ export default function ClippedDrawer() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <div style={{ minWidth: "1280px", margin: "0 auto" }}>
-          <Toolbar>
+        <Toolbar className={classes.toolBar}>
+          <div style={{ flexGrow: 1 }}>
             {downXS ? (
               <IconButton onClick={handleOpenDrawer}>
-                <MdMenu />
+                <MdMenu className={classes.NavIcon} />
               </IconButton>
             ) : (
-              <p>Menu</p>
+              <NavMenu />
             )}
-          </Toolbar>
-        </div>
+          </div>
+          <img src={logo} alt="Logo" />
+        </Toolbar>
       </AppBar>
       {downXS && (
         <Drawer
@@ -73,13 +93,18 @@ export default function ClippedDrawer() {
           }}
         >
           <div className={classes.drawerContainer}>
-            <IconButton onClick={handleOpenDrawer}>
-              <MdClose />
-              <p>Menu</p>
+            <IconButton
+              onClick={handleOpenDrawer}
+              style={{ marginBottom: "3rem" }}
+            >
+              <MdClose className={classes.NavIcon} />
             </IconButton>
+            <NavMenu />
           </div>
         </Drawer>
       )}
     </div>
   )
 }
+
+export default Navbar
