@@ -12,7 +12,6 @@ import {
 import { MdMenu, MdClose } from "react-icons/md"
 import NavMenu from "../NavMenu/NavMenu"
 import logo from "../../../static/Logo-1.png"
-import logoWhite from "../../../static/Logo-2.png"
 
 const drawerWidth = "75%"
 const useStyles = makeStyles(theme => ({

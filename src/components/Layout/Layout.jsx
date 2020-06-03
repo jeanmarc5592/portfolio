@@ -9,7 +9,6 @@ import Footer from "../Footer/Footer"
 const theme = createMuiTheme({
   typography: {
     fontFamily: "Montserrat",
-    fontSize: 10,
   },
   palette: {
     primary: {
@@ -34,8 +33,16 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Navbar />
-      <Container maxWidth="lg" style={{ marginTop: 64, padding: "0 48px" }}>
-        <Box component="main">{children}</Box>
+      <Container maxWidth="lg" style={{ marginTop: "64px" }}>
+        <Box
+          component="main"
+          style={{
+            textAlign: "center",
+            overflow: "auto",
+          }}
+        >
+          {children}
+        </Box>
         <Footer />
       </Container>
     </ThemeProvider>
