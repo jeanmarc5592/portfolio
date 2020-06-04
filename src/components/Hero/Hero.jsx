@@ -70,7 +70,7 @@ const Hero = () => {
         </div>
         <Typography
           variant="h3"
-          style={{ textAlign: "center", textTransform: "uppercase" }}
+          style={{ textAlign: "left", textTransform: "uppercase" }}
         >
           Merging the passion for coding with design
         </Typography>
