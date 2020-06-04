@@ -1,8 +1,11 @@
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import { Tabs, Tab, Typography, Box, useTheme } from "@material-ui/core"
 import { FaInfo, FaHandHoldingHeart, FaTools } from "react-icons/fa"
+import AboutInfo from "./AboutInfo"
+import AboutTools from "./AboutTools"
+import AboutEthos from "./AboutEthos"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -16,9 +19,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
+        <article style={{ paddingLeft: "3rem" }}>{children}</article>
       )}
     </div>
   )
@@ -101,13 +102,13 @@ export default function VerticalTabs() {
         index={0}
         style={{ width: "100%", textAlign: "center" }}
       >
-        Info
+        <AboutInfo />
       </TabPanel>
       <TabPanel value={value} index={1} style={{ width: "100%" }}>
-        Tools
+        <AboutTools />
       </TabPanel>
       <TabPanel value={value} index={2} style={{ width: "100%" }}>
-        Ethos
+        <AboutEthos />
       </TabPanel>
     </div>
   )
