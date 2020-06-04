@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { MdExpandMore } from "react-icons/md"
-import Title from "../Title/Title"
+import SectionTitle from "../Title/SectionTitle"
 import Button from "../Button/Button"
 
 const useStyles = makeStyles(theme => ({
@@ -66,7 +66,7 @@ const Hero = () => {
     <section className={classes.hero}>
       <article className={classes.leftSide}>
         <div>
-          <Title text={["Jean-Marc", "Möckel"]} large />
+          <SectionTitle text={["Jean-Marc", "Möckel"]} large />
         </div>
         <Typography
           variant="h3"

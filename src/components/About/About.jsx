@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/styles"
-import Title from "../Title/Title"
+import SectionTitle from "../Title/SectionTitle"
 import AboutTabNavigation from "./AboutTabNavigation"
 
 const useStyles = makeStyles(theme => ({
@@ -14,7 +14,7 @@ const About = () => {
 
   return (
     <section className={classes.about}>
-      <Title text={["About"]} />
+      <SectionTitle text={["About"]} />
       <div style={{ padding: "7.5rem 0" }}>
         <AboutTabNavigation />
       </div>

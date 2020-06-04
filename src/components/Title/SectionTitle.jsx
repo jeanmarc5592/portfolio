@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Title = ({ text, large }) => {
+const SectionTitle = ({ text, large }) => {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -48,4 +48,4 @@ const Title = ({ text, large }) => {
   )
 }
 
-export default Title
+export default SectionTitle
