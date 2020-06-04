@@ -22,14 +22,11 @@ const useStyles = makeStyles(theme => ({
     },
   },
   leftSide: {
-    padding: "3rem 0",
+    padding: "3rem 1rem",
     width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    [theme.breakpoints.up("md")]: {
-      width: "90%",
-    },
   },
   iconButton: {
     padding: "0",
@@ -42,22 +39,24 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const query = graphql`
+  query getHeroImg {
+    file(relativePath: { eq: "hero-img.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
 const Hero = () => {
   const {
     file: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery(graphql`
-    query getHeroImg {
-      file(relativePath: { eq: "hero-img.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  } = useStaticQuery(query)
   const classes = useStyles()
   const theme = useTheme()
   const upMD = useMediaQuery(theme.breakpoints.up("md"))

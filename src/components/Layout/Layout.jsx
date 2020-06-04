@@ -38,7 +38,8 @@ const Layout = ({ children }) => {
           component="main"
           style={{
             textAlign: "center",
-            overflow: "auto",
+            overflowX: "hidden",
+            overflowY: "auto",
           }}
         >
           {children}
