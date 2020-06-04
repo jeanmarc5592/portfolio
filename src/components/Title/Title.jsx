@@ -3,12 +3,22 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
-  title: {
+  largeTitle: {
+    textTransform: "uppercase",
+    fontSize: "4rem",
+    background: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
+    fontWeight: "700",
+    "&:nth-last-of-type(even)": {
+      marginBottom: "0.75rem",
+    },
+  },
+  defaultTitle: {
     textTransform: "uppercase",
     background: theme.palette.secondary.main,
     color: theme.palette.primary.main,
     fontWeight: "700",
-    fontSize: "4rem",
+    margin: "0 auto",
     "&:nth-last-of-type(even)": {
       marginBottom: "0.75rem",
     },
@@ -21,7 +31,11 @@ const Title = ({ text, large }) => {
   return (
     <Fragment>
       {text.map((item, index) => (
-        <Typography variant="h1" key={index} className={classes.title}>
+        <Typography
+          variant={large ? "h1" : "h3"}
+          key={index}
+          className={large ? classes.largeTitle : classes.defaultTitle}
+        >
           {item}
         </Typography>
       ))}
