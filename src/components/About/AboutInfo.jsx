@@ -1,12 +1,16 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import { Typography, useTheme, Grid } from "@material-ui/core"
+import { useTheme, Grid } from "@material-ui/core"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import CardTitle from "../Title/CardTitle"
 import SocialLinks from "../SocialLinks/SocialLinks"
 
 const query = graphql`
-  query getAboutImg {
+  query getData {
+    mdx(frontmatter: { title: { eq: "About Info" } }) {
+      body
+    }
     file(relativePath: { eq: "me.png" }) {
       childImageSharp {
         fluid {
@@ -19,27 +23,25 @@ const query = graphql`
 
 const AboutInfo = () => {
   const theme = useTheme()
+  const data = useStaticQuery(query)
+
+  // Extract Image
   const {
     file: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery(query)
+  } = data
+
+  // Extract MDX Data
+  const {
+    mdx: { body },
+  } = data
 
   return (
     <Grid container spacing={3}>
       <Grid item sm={12} md={6}>
         <CardTitle text="I'm a Frontend Developer" />
-        <Typography
-          variant="body1"
-          style={{ color: theme.palette.common.white, textAlign: "left" }}
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-          cupiditate quisquam animi eius dolore molestias illo inventore dolorum
-          itaque odit officia recusandae dolor nulla molestiae ut unde quidem,
-          quas atque voluptatibus soluta rem aspernatur sit! Deserunt quisquam
-          rerum quis? Adipisci quas suscipit voluptate fugit impedit in dolores
-          minima tempora voluptas!
-        </Typography>
+        <MDXRenderer>{body}</MDXRenderer>
       </Grid>
       <Grid item sm={12} md={6}>
         <Image fluid={fluid} style={{ width: "60%", margin: "0 auto" }} />
