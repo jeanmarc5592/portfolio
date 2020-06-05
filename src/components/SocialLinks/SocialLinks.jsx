@@ -35,7 +35,7 @@ const SocialLinks = () => {
   const classes = useStyles()
 
   return (
-    <div style={{ marginTop: "2rem" }}>
+    <div style={{ marginTop: "2rem", textAlign: "center" }}>
       {socialLinks.map((link, index) => (
         <Button key={index} href={link.url} className={classes.iconButton}>
           {link.icon}
