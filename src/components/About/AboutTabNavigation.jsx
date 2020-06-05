@@ -100,14 +100,34 @@ export default function VerticalTabs() {
       <TabPanel
         value={value}
         index={0}
-        style={{ width: "100%", textAlign: "center" }}
+        style={{
+          width: "100%",
+          textAlign: "left",
+          color: theme.palette.common.white,
+        }}
       >
         <AboutInfo />
       </TabPanel>
-      <TabPanel value={value} index={1} style={{ width: "100%" }}>
+      <TabPanel
+        value={value}
+        index={1}
+        style={{
+          width: "100%",
+          textAlign: "left",
+          color: theme.palette.common.white,
+        }}
+      >
         <AboutTools />
       </TabPanel>
-      <TabPanel value={value} index={2} style={{ width: "100%" }}>
+      <TabPanel
+        value={value}
+        index={2}
+        style={{
+          width: "100%",
+          textAlign: "left",
+          color: theme.palette.common.white,
+        }}
+      >
         <AboutEthos />
       </TabPanel>
     </div>
