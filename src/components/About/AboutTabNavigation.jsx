@@ -104,6 +104,7 @@ export default function VerticalTabs() {
           width: "100%",
           textAlign: "left",
           color: theme.palette.common.white,
+          fontSize: "1rem",
         }}
       >
         <AboutInfo />
@@ -115,6 +116,7 @@ export default function VerticalTabs() {
           width: "100%",
           textAlign: "left",
           color: theme.palette.common.white,
+          fontSize: "1rem",
         }}
       >
         <AboutTools />
@@ -126,6 +128,7 @@ export default function VerticalTabs() {
           width: "100%",
           textAlign: "left",
           color: theme.palette.common.white,
+          fontSize: "1rem",
         }}
       >
         <AboutEthos />
