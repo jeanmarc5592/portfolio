@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Frontend Developer Portfolio`,
@@ -30,6 +34,13 @@ module.exports = {
             resolve: "gatsby-remark-images",
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: "l94qvh3vyfhu",
+        accessToken: process.env.ACCESS_TOKEN,
       },
     },
   ],
