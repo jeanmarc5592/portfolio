@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Button } from "@material-ui/core"
-import { FaPlus, FaMinus } from "react-icons/fa"
 import Section from "../Layout/Section"
 import ProjectCard from "./ProjectCard"
+import UnderlinedButton from "../Button/UnderlinedButton"
 
 const query = graphql`
   query getAllProjects {
@@ -64,16 +63,9 @@ const Work = () => {
             odd={index % 2 !== 0}
           />
         ))}
-      <Button
-        style={{
-          fontWeight: 700,
-          fontSize: "1.3rem",
-          textDecoration: "underline",
-        }}
-        onClick={() => setShowAll(!showAll)}
-      >
+      <UnderlinedButton onClick={() => setShowAll(!showAll)}>
         {showAll ? "Show Less" : "Show More"}
-      </Button>
+      </UnderlinedButton>
     </Section>
   )
 }
