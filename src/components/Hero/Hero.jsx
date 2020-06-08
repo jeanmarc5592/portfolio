@@ -1,12 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import {
-  useMediaQuery,
-  useTheme,
-  Typography,
-  IconButton,
-} from "@material-ui/core"
+import { useMediaQuery, useTheme, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { MdExpandMore } from "react-icons/md"
 import SectionTitle from "../Title/SectionTitle"
@@ -27,15 +22,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-  },
-  iconButton: {
-    padding: "0",
-    "&:hover": {
-      background: "none",
-    },
-    "&:hover span": {
-      color: theme.palette.secondary.main,
-    },
   },
 }))
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { Grid } from "@material-ui/core"
 import Section from "../Layout/Section"
 import BlogCard from "./BlogCard"

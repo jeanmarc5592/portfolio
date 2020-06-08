@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import { useTheme, Grid } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import CardTitle from "../Title/CardTitle"
 import SocialLinks from "../SocialLinks/SocialLinks"
@@ -22,7 +22,6 @@ const query = graphql`
 `
 
 const AboutInfo = () => {
-  const theme = useTheme()
   const data = useStaticQuery(query)
 
   // Extract Image

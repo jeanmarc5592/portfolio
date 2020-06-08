@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Typography, useTheme } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   largeTitle: {
@@ -31,7 +31,6 @@ const useStyles = makeStyles(theme => ({
 
 const SectionTitle = ({ text, large }) => {
   const classes = useStyles()
-  const theme = useTheme()
 
   return (
     <Fragment>
