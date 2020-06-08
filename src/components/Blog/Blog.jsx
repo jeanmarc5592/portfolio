@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
+import { Grid } from "@material-ui/core"
 import Section from "../Layout/Section"
 import BlogCard from "./BlogCard"
 import UnderlinedButton from "../Button/UnderlinedButton"
@@ -34,19 +35,8 @@ const Blog = () => {
 
   return (
     <Section title={["Blog"]}>
-      {firstThreePosts.map(post => (
-        <BlogCard
-          key={post.id}
-          title={post.title}
-          fluid={post.image.fluid}
-          excerpt={post.excerpt}
-          date={post.date}
-          author={post.author}
-          slug={post.slug}
-        />
-      ))}
-      {showAll &&
-        remainingPosts.map(post => (
+      <Grid container spacing={10} alignItems="stretch">
+        {firstThreePosts.map(post => (
           <BlogCard
             key={post.id}
             title={post.title}
@@ -57,6 +47,19 @@ const Blog = () => {
             slug={post.slug}
           />
         ))}
+        {showAll &&
+          remainingPosts.map(post => (
+            <BlogCard
+              key={post.id}
+              title={post.title}
+              fluid={post.image.fluid}
+              excerpt={post.excerpt}
+              date={post.date}
+              author={post.author}
+              slug={post.slug}
+            />
+          ))}
+      </Grid>
       <UnderlinedButton onClick={() => setShowAll(!showAll)}>
         {showAll ? "Show Less" : "Show All"}
       </UnderlinedButton>

@@ -1,11 +1,114 @@
 import React from "react"
+import { Link } from "gatsby"
+import Image from "gatsby-image"
+import { Typography, Button, useTheme, Grid, Divider } from "@material-ui/core"
+import CardTitle from "../Title/CardTitle"
 
 const BlogCard = ({ title, fluid, excerpt, date, author, slug }) => {
+  const theme = useTheme()
+
   return (
-    <div>
-      <h2>Hello From the BlogCard</h2>
-    </div>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        marginBottom: "7.5rem",
+      }}
+    >
+      <Image
+        fluid={fluid}
+        style={{ maxHeight: "200px", marginBottom: "1rem" }}
+      />
+
+      <CardTitle text={title} style={{ marginBottom: "auto" }} />
+      <Typography
+        variant="body1"
+        component="p"
+        align="left"
+        style={{ marginTop: "auto", marginBottom: "1rem" }}
+      >
+        {excerpt.substring(0, 120)}...
+      </Typography>
+      <Divider
+        style={{
+          background: theme.palette.common.white,
+          opacity: "0.5",
+          marginBottom: "1rem",
+        }}
+      />
+      <Button
+        style={{
+          color: theme.palette.secondary.main,
+          fontWeight: 700,
+          marginRight: "2rem",
+          textAlign: "left",
+          width: "fit-content",
+          padding: 0,
+        }}
+      >
+        <Link
+          style={{ textDecoration: "none", color: "inherit" }}
+          to={`/blog/${slug}`}
+        >
+          Read More
+        </Link>
+      </Button>
+    </Grid>
   )
 }
 
 export default BlogCard
+
+/**
+ * <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      style={{
+        padding: "3rem",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <Image fluid={fluid} />
+      <CardTitle text={title} style={{ marginBottom: "auto" }} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flex: "1 0 auto",
+          alignItems: "flex-start",
+        }}
+      >
+        <Typography
+          variant="body2"
+          component="small"
+          style={{ marginTop: "auto" }}
+        >
+          {date}
+        </Typography>
+        <Typography variant="body2" component="small">
+          By: {author}
+        </Typography>
+        <Typography variant="body1" component="p" align="left">
+          {slicedExcerpt(excerpt)}
+        </Typography>
+        <Button
+          variant="contained"
+          style={{
+            color: theme.palette.primary.main,
+            background: theme.palette.secondary.main,
+            fontWeight: 700,
+            marginRight: "2rem",
+          }}
+        >
+          Read More
+        </Button>
+      </div>
+    </Grid>
+ */
