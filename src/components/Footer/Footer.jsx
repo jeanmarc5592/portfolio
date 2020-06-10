@@ -23,7 +23,7 @@ const Footer = () => {
   const classes = useStyles()
 
   return (
-    <footer style={{ textAlign: "center" }}>
+    <footer style={{ textAlign: "center", marginTop: "10rem" }}>
       <img src={logoWhite} alt="logo white" style={{ marginBottom: "2rem" }} />
       <div
         style={{
