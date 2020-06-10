@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Typography } from "@material-ui/core"
+import Image from "gatsby-image"
+import RichText from "@madebyconnor/rich-text-to-jsx"
+import { Typography, Container } from "@material-ui/core"
 import Layout from "../components/Layout/Layout"
 
 export const data = graphql`
@@ -15,7 +17,7 @@ export const data = graphql`
       date(formatString: "MMMM Do, YYYY")
       author
       content {
-        content
+        json
       }
     }
   }
@@ -27,11 +29,15 @@ const blogTemplate = ({ data }) => {
     author,
     date,
     image: { fluid },
-    content: { content },
+    content: { json },
   } = data.blogPost
   return (
     <Layout>
-      <Typography variant="h2">{title}</Typography>
+      <Image fluid={fluid} style={{ maxHeight: "500px" }} />
+      <Container maxWidth="md">
+        <Typography variant="h2">{title}</Typography>
+        <RichText richText={json} />
+      </Container>
     </Layout>
   )
 }
