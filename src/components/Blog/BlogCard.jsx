@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
-import { Typography, Button, useTheme, Grid, Divider } from "@material-ui/core"
+import { Typography, Button, useTheme, Grid } from "@material-ui/core"
 import CardTitle from "../Title/CardTitle"
+import CustomDivider from "../CustomDivider/CustomDivider"
 
 const BlogCard = ({ title, fluid, excerpt, date, author, slug }) => {
   const theme = useTheme()
@@ -29,17 +30,11 @@ const BlogCard = ({ title, fluid, excerpt, date, author, slug }) => {
         variant="body1"
         component="p"
         align="left"
-        style={{ marginTop: "auto", marginBottom: "1rem" }}
+        style={{ marginTop: "auto" }}
       >
         {excerpt.substring(0, 120)}...
       </Typography>
-      <Divider
-        style={{
-          background: theme.palette.common.white,
-          opacity: "0.5",
-          marginBottom: "1rem",
-        }}
-      />
+      <CustomDivider />
       <Button
         style={{
           color: theme.palette.secondary.main,
